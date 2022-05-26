@@ -16,8 +16,10 @@ export const generateUrl = (api_domain, params) => {
     Object.keys(params).map((key) => {
       const value = params[key];
       if (value) {
-        if (typeof value === "string" && value.length > 0) {
-          url.searchParams.append(`${key}`, value);
+        if (typeof value === "string") {
+          if (value.length > 0) {
+            url.searchParams.append(`${key}`, value);
+          }
         } else {
           url.searchParams.append(`${key}`, value);
         }
